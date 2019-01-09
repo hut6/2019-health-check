@@ -1,0 +1,16 @@
+{
+  "name": "hut6/2019-health-check",
+  "license": "Apache-2.0",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Ryan Castle",
+      "email": "ryan@hutsix.com.au"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {},
+  "scripts": {
+    "build": ["docker build . -t hut6/health-check:latest", "docker push hut6/health-check:latest"]
+  }
+}
