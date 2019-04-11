@@ -1,5 +1,9 @@
-FROM php:7.2-apache
+FROM nginx:alpine
 
-COPY index.html /var/www/html/
+RUN apk --no-cache add curl
 
-HEALTHCHECK --retries=1 CMD php /health
+COPY index.html /usr/share/nginx/html/
+
+COPY health-check /health-check
+
+HEALTHCHECK --retries=3 --interval=10s CMD chmod +x /health-check && /health-check
